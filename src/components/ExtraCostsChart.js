@@ -18,7 +18,7 @@ function ExtraCostsChart(props) {
         return data;
     })
     return (
-        <div className="col-md-4">
+        <div className="col-lg-4 pt-1">
             <h2 className="text-center">Extra Costs</h2>
             <Doughnut useRef="chart" data={chartData} />
         </div>

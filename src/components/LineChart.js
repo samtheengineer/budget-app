@@ -49,7 +49,7 @@ function LineChart(props) {
         return data;
     })
     return (
-        <div id="lineChart">
+        <div id="lineChart" className='col-lg-8'>
             <Line useRef="chart" data={chartData} />
         </div>
     )
