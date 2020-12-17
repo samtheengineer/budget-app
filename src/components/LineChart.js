@@ -1,55 +1,56 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Line } from 'react-chartjs-2';
 
-const data = {
-    labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-    datasets: [
-        {
-            label: 'Katie',
-            fill: false,
-            lineTension: 0.1,
-            borderColor: 'rgba(129,137,110)',
-            borderCapStyle: 'butt',
-            borderDash: [],
-            borderDashOffset: 0.0,
-            // borderJoinStyle: 'miter',
-            pointBorderColor: 'rgba(205, 162, 252, 1)',
-            pointBackgroundColor: '#fff',
-            pointBorderWidth: 1,
-            pointHoverRadius: 5,
-            pointHoverBackgroundColor: 'rgba(75,192,192,1)',
-            pointHoverBorderColor: 'rgba(220,220,220,1)',
-            pointHoverBorderWidth: 2,
-            pointRadius: 1,
-            pointHitRadius: 10,
-            data: [65, 59, 80, 81, 56, 55, 40]
-        },
-        {
-            label: 'Sam',
-            fill: false,
-            lineTension: 0.1,
-            borderColor: 'rgba	(102,122,116)',
-            borderCapStyle: 'butt',
-            borderDash: [],
-            borderDashOffset: 0.0,
-            // borderJoinStyle: 'miter',
-            pointBorderColor: 'rgba(255, 146, 104, 1)',
-            pointBackgroundColor: '#fff',
-            pointBorderWidth: 1,
-            pointHoverRadius: 5,
-            pointHoverBackgroundColor: 'rgba(75,192,192,1)',
-            pointHoverBorderColor: 'rgba(220,220,220,1)',
-            pointHoverBorderWidth: 2,
-            pointRadius: 1,
-            pointHitRadius: 10,
-            data: [100, 40, 30, 81, 45, 55, 72]
+function LineChart(props) {
+    const [chartData, setChartData] = useState(() => {
+        const data = {
+            labels: [],
+            datasets: [
+                {
+                    label: 'Income',
+                    fill: false,
+                    lineTension: 0.1,
+                    borderColor: 'rgba(193, 204, 153)',
+                    borderCapStyle: 'butt',
+                    pointBorderColor: 'rgba(205, 162, 252, 1)',
+                    pointBorderWidth: 1,
+                    pointHoverRadius: 5,
+                    pointHoverBackgroundColor: 'rgba(75,192,192,1)',
+                    pointHoverBorderColor: 'rgba(220,220,220,1)',
+                    pointHoverBorderWidth: 2,
+                    pointRadius: 1,
+                    pointHitRadius: 10,
+                    data: [6000, 6200, 6000, 5800, 6100, 6000, 5800]
+                },
+                {
+                    label: 'Expenses',
+                    fill: false,
+                    lineTension: 0.1,
+                    borderColor: 'rgba(216, 17, 89)',
+                    borderCapStyle: 'butt',
+                    borderDash: [],
+                    borderDashOffset: 0.0,
+                    // borderJoinStyle: 'miter',
+                    pointBorderColor: 'rgba(216, 17, 89)',
+                    pointBackgroundColor: '#fff',
+                    pointBorderWidth: 1,
+                    pointHoverRadius: 5,
+                    pointHoverBackgroundColor: 'rgba(75,192,192,1)',
+                    pointHoverBorderColor: 'rgba(220,220,220,1)',
+                    pointHoverBorderWidth: 2,
+                    pointRadius: 1,
+                    pointHitRadius: 10,
+                    data: [3482, 3599, 3500, 2790, 3000, 4850, 3000]
+                }
+            ]
         }
-    ]
-};
-function LineChart() {
+        data.labels = props.labels;
+        console.log('LineChart data loaded')
+        return data;
+    })
     return (
         <div id="lineChart">
-            <Line useRef="chart" data={data} />
+            <Line useRef="chart" data={chartData} />
         </div>
     )
 }
